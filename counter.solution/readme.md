@@ -25,10 +25,10 @@ _In Terminal:_
 * Navigate to where you want this application to be saved, i.e.:
 ```cd desktop```
 * Clone the file from GitHub with HTTPS
-```git clone https://github.com/kwicz/beep-boop.git```
+```git clone https://github.com/LonleyBuzzyBee/Word-Counter.git```
 * Open file in your preferred text editor
-* On Mac: ```open -a {your text editor} beep-boop```
-* On Windows: ```beep-boop```
+* On Mac: ```open -a {your text editor} word-counter```
+* On Windows: ```word-counter```
 
 _To Download Manually:_
 
