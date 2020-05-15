@@ -1,15 +1,10 @@
-# _{Application Name}_
+# _Word Count_
 
-#### _{Brief description of application}, {Date of current version}_
+#### _Word Count was created to help the user find out how many times they use each word in a sentence, latest update 05/15/2020 version 1_
 
 #### By _**Mai C.**_
 
 
-## Preview
-
-[![Landing Page Preview](url-for-img)]
-
-**[View Live Preview](https://kwicz.github.io/{this-repo}/)**
 
 ## Description
 
