@@ -12,11 +12,11 @@ _This program was designed to help the user count how many times they used each 
 
 ## Project Specifications
 
-| Behavior | Input | Output |
-|---|---|---|
-|   |   |   |
-|   |   |   |
-|   |   |   |
+| Input | Output |
+|---|---|
+| the program takes the inputed sentence  |  "hey there" |
+| the program splits the sentence into an array of words |  ["hey, "there"] |
+| the program then counts how many times they used each word  | hey 1 time, ther 1 time |
 
 ## Setup/Installation Requirements
 
