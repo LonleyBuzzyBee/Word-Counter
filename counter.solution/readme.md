@@ -32,12 +32,12 @@ _In Terminal:_
 
 _To Download Manually:_
 
-* Navigate to https://github.com/kwicz/beep-boop.
+* Navigate to https://github.com/LonleyBuzzyBee/Word-Counter.
 * Click green "Clone or Download" button.
 * Click "Download ZIP".
 * Click downloaded file to unzip.
-* Open folder called "beep-boop-master".
-* Right click "index.html" and select your preferred browser or text editor.
+* Open folder called "word-counter-master".
+* Right click "word.cs" and select your preferred browser or text editor.
 
 ## Known Bugs
 
