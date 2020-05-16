@@ -45,7 +45,7 @@ _No known bugs at this time._
 
 ## Support and contact details
 
-_Have a bug or an issue with this application? [Open a new issue](https://github.com/kwicz/{repo-name}/issues) here on GitHub._
+_Have a bug or an issue with this application? [Open a new issue](https://github.com/LonleyBuzzyBee/Word-Counter/issues) here on GitHub._
 
 ## Technologies Used
 
