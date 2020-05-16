@@ -23,7 +23,7 @@ _This program was designed to help the user count how many times they used each 
 _In Terminal:_
 
 * Navigate to where you want this application to be saved, i.e.:
-```cd desktop```
+```cd desktop``
 * Clone the file from GitHub with HTTPS
 ```git clone https://github.com/LonleyBuzzyBee/Word-Counter.git```
 * Open file in your preferred text editor
