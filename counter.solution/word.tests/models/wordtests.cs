@@ -6,6 +6,6 @@ namespace Word.Tests
   [TestClass]
   public class TestClass
   {
-    
+    [TestMethod]
   }
 }
