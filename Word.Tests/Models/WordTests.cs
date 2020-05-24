@@ -14,5 +14,13 @@ namespace Word.Tests
 
       Assert.AreEqual("", sentence);
     }
+    [TestMethod]
+    public void RepeatCounter_ReturnsIt()
+    {
+      RepeatCounter newCounter = new RepeatCounter("dog");
+      newCounter.WordCount();
+      int timesWordRepeat = newCounter.RepeatTimes;
+      Assert.AreEqual(5, timesWordRepeat);
+    }
   }
 }
