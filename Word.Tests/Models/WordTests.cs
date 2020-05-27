@@ -20,7 +20,7 @@ namespace Word.Tests
       RepeatCounter newCounter = new RepeatCounter("dog");
       newCounter.WordCount();
       int timesWordRepeat = newCounter.RepeatTimes;
-      Assert.AreEqual(5, timesWordRepeat);
+      Assert.AreEqual(0, timesWordRepeat);
     }
   }
 }

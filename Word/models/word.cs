@@ -8,9 +8,11 @@ namespace Word.Models
     {
       Sentence = sentence;
     }
-    public void WordCount()
+    public int WordCount()
     {
-      
+      RepeatTimes = 0;
+      Sentence = Sentence.ToUpper();
+      return RepeatTimes;
     }
 
   }
