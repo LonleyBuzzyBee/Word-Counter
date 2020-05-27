@@ -15,12 +15,20 @@ namespace Word.Tests
       Assert.AreEqual("", sentence);
     }
     [TestMethod]
-    public void RepeatCounter_ReturnsIt()
+    public void RepeatCounter_ReturnsInt()
     {
       RepeatCounter newCounter = new RepeatCounter("dog");
       newCounter.WordCount();
       int timesWordRepeat = newCounter.RepeatTimes;
-      Assert.AreEqual(0, timesWordRepeat);
+      Assert.AreEqual(1, timesWordRepeat);
+    }
+    [TestMethod]
+    public void RepeatCounter_ReturnsnumberOfTimesWordIsRepeated()
+    {
+      RepeatCounter newCounter = new RepeatCounter("dog black");
+      newCounter.WordCount();
+      int timesWordRepeat = newCounter.RepeatTimes;
+      Assert.AreEqual(1, timesWordRepeat);
     }
   }
 }

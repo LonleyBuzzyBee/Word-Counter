@@ -8,11 +8,16 @@ namespace Word.Models
     {
       Sentence = sentence;
     }
-    public int WordCount()
+    public void WordCount()
     {
       RepeatTimes = 0;
-      Sentence = Sentence.ToUpper();
-      return RepeatTimes;
+      string[] words = Sentence.Split(" ");
+      foreach(var word in words)
+      {
+        RepeatTimes +=1;
+      }
+    
+      
     }
 
   }
