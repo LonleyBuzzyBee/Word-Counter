@@ -8,6 +8,7 @@ namespace Word.Models
   {
     public string Sentence { get; set; }
 
+    public Dictionary<string, int> Dict = new Dictionary<string, int>();
     
     public RepeatCounter(string sentence)
     {
@@ -17,30 +18,14 @@ namespace Word.Models
     {
       string[] words = Sentence.ToLower().Split(" ");
 
-      for(int index = 0; index< words.Length; index++)
+
+      foreach(string word in words)
       {
-        int repeatCount = 1;
-
-        for(int j = index + 1; j < words.Length; j++)
-        {
-          if(words[index].Equals(words[j]))
-          {
-            repeatCount++;
-           
-          }
-
-        words[index].ToString();
-        }
         
       }
 
 
 
-
-
-
-
     }
-
   }
 }
