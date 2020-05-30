@@ -20,10 +20,10 @@ namespace Word.Tests
     {
       RepeatCounter newSentence = new RepeatCounter("dog dog");
 
-      newSentence.WordCount();
+      newSentence.GetWordCount("dog");
 
      
-      var timesWordRepeat = newSentence.Dict["dog"];
+      var timesWordRepeat = newSentence.GetWordCount("dog");
 
       Assert.AreEqual(2,timesWordRepeat);
     }
@@ -32,12 +32,10 @@ namespace Word.Tests
     {
       RepeatCounter newSentence = new RepeatCounter("hey going hows it going");
 
-      newSentence.WordCount();
-
-      var word1  = newSentence.Dict["hey"];
-      var word2  = newSentence.Dict["going"];
-      var word3  = newSentence.Dict["hows"];
-      var word4  = newSentence.Dict["it"];
+      var word1  = newSentence.GetWordCount("hey");
+      var word2  = newSentence.GetWordCount("going");
+      var word3  = newSentence.GetWordCount("hows");
+      var word4  = newSentence.GetWordCount("it");
 
 
       Assert.AreEqual(1,word1);
@@ -50,19 +48,22 @@ namespace Word.Tests
     {
       RepeatCounter newSentence = new RepeatCounter("hey how's it going");
 
-      newSentence.WordCount();
-
-      var word1  = newSentence.Dict["hey"];
-      var word2  = newSentence.Dict["going"];
-      var word3  = newSentence.Dict["hows"];
-      var word4  = newSentence.Dict["it"];
-
+      var word1  = newSentence.GetWordCount("hey");
+      var word2  = newSentence.GetWordCount("going");
+      var word3  = newSentence.GetWordCount("hows");
+      var word4  = newSentence.GetWordCount("it");
 
       Assert.AreEqual(1,word1);
-      Assert.AreEqual(2,word2);
+      Assert.AreEqual(1,word2);
       Assert.AreEqual(1,word3);
       Assert.AreEqual(1,word4);
     }
   }
 }
-//checks if is not in dictionary than its equal to zero
+//checks if is not in dictionary than its equal to zero 
+
+//if null empty string is passed in expect exception with message assert(exception recieved) maybe try catch?
+
+//getwordcount returns lowercase 
+
+//doesn't return int, says error  message if int

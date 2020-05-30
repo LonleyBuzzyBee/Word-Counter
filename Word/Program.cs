@@ -12,18 +12,15 @@ namespace Word
 
       string input = Console.ReadLine();
 
+     
       RepeatCounter userSentence = new RepeatCounter(input);
     
 
-      
+      Console.WriteLine("This is how many times each word is repeated");
 
-
-      Console.WriteLine("This is how many times each word is repeated"
-      );
-
-     foreach(var key in userSentence.Dict.Keys)
+     foreach(var word in userSentence.GetWords())
      {
-       Console.WriteLine($"{key} : {userSentence.Dict[key]}" );
+       Console.WriteLine($"{word} : {userSentence.GetWordCount(word)}" );
      }
     }
   }
