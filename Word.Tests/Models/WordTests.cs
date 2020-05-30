@@ -18,25 +18,51 @@ namespace Word.Tests
     [TestMethod]
     public void RepeatCounter_AddsValueToDict()
     {
-      RepeatCounter newSentence = new RepeatCounter("dog");
+      RepeatCounter newSentence = new RepeatCounter("dog dog");
 
       newSentence.WordCount();
 
-
-      RepeatWordsDic.Add(newSentence.ToString(),1);
-
      
-      var timesWordRepeat = RepeatWordsDic[newSentence.ToString()];
+      var timesWordRepeat = newSentence.Dict["dog"];
 
-      Assert.AreEqual(1,timesWordRepeat);
+      Assert.AreEqual(2,timesWordRepeat);
     }
     [TestMethod]
-    public void RepeatCounter_ReturnsnumberOfTimesWordIsRepeated()
+    public void RepeatCounter_ChecksForRepeatWords()
     {
-      // RepeatCounter newCounter = new RepeatCounter("dog black");
-      // newCounter.WordCount();
-      // int timesWordRepeat = newCounter.RepeatTimes;
-      // Assert.AreEqual(1, timesWordRepeat);
+      RepeatCounter newSentence = new RepeatCounter("hey going hows it going");
+
+      newSentence.WordCount();
+
+      var word1  = newSentence.Dict["hey"];
+      var word2  = newSentence.Dict["going"];
+      var word3  = newSentence.Dict["hows"];
+      var word4  = newSentence.Dict["it"];
+
+
+      Assert.AreEqual(1,word1);
+      Assert.AreEqual(2,word2);
+      Assert.AreEqual(1,word3);
+      Assert.AreEqual(1,word4);
+    }
+    [TestMethod]
+    public void RepeatCounterRemovesSpecialChar_()
+    {
+      RepeatCounter newSentence = new RepeatCounter("hey how's it going");
+
+      newSentence.WordCount();
+
+      var word1  = newSentence.Dict["hey"];
+      var word2  = newSentence.Dict["going"];
+      var word3  = newSentence.Dict["hows"];
+      var word4  = newSentence.Dict["it"];
+
+
+      Assert.AreEqual(1,word1);
+      Assert.AreEqual(2,word2);
+      Assert.AreEqual(1,word3);
+      Assert.AreEqual(1,word4);
     }
   }
 }
+//checks if is not in dictionary than its equal to zero
