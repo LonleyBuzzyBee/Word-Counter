@@ -13,8 +13,18 @@ namespace Word.Models
     public RepeatCounter(string sentence)
     {
       Sentence = sentence;
+      WordCount();
     }
-    public void WordCount()
+
+    public int GetWordCount(string word) {
+
+      // check dictionary to see if key exists
+
+      // if key exists ruturn value else return 0
+      return 0;
+    }
+
+    private void WordCount()
     {
       string[] words = Sentence.ToLower().Split(" ");
 
@@ -22,7 +32,7 @@ namespace Word.Models
       {
         if(Dict.ContainsKey(word))
         {
-        Dict[word] ++;
+          Dict[word] ++;
         }
         else
         {

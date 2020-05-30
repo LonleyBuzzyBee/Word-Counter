@@ -15,7 +15,7 @@ namespace Word
       RepeatCounter userSentence = new RepeatCounter(input);
     
 
-      userSentence.WordCount();
+      
 
 
       Console.WriteLine("This is how many times each word is repeated"
