@@ -16,7 +16,9 @@ _This program was designed to help the user count how many times they used each 
 |---|---|
 | the program takes the inputed sentence  |  "hey there" |
 | the program splits the sentence into an array of words |  ["hey, "there"] |
-| the program then counts how many times they used each word  | hey 1 time, ther 1 time |
+| the program then counts how many times they used each word  | hey 1 time, there 1 time |
+| the program removes special char  | how's becomes hows |
+
 
 ## Setup/Installation Requirements
 
