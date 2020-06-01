@@ -58,6 +58,28 @@ namespace Word.Tests
       Assert.AreEqual(1,word3);
       Assert.AreEqual(1,word4);
     }
+    [TestMethod]
+    public void RepeatCounterChecksIfWordIsInDictionaryIfNotThenWordIsZero_()
+    {
+      RepeatCounter newSentence = new RepeatCounter("hope you have a nice day");
+
+      var word1  = newSentence.GetWordCount("hope");
+      var word2  = newSentence.GetWordCount("cherry");
+
+      Assert.AreEqual(1,word1);
+      Assert.AreEqual(0,word2);
+    }
+    [TestMethod]
+    public void MainChecksForEmptyStringThrowsException_()
+    {
+      RepeatCounter newSentence = new RepeatCounter(" ");
+
+      var empty  = newSentence.GetWordCount("hope");
+    
+
+      Assert.AreEqual("error",empty);
+  
+    }
   }
 }
 //checks if is not in dictionary than its equal to zero 
