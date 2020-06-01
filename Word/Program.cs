@@ -11,17 +11,26 @@ namespace Word
       Console.WriteLine("input a sentence");
 
       string input = Console.ReadLine();
+   
+        RepeatCounter userSentence = new RepeatCounter(input);
 
-     
-      RepeatCounter userSentence = new RepeatCounter(input);
-    
+        if(string.IsNullOrEmpty(input))
+        {
+          Console.WriteLine("error");
+        }
+        else
+        {
 
-      Console.WriteLine("This is how many times each word is repeated");
+        Console.WriteLine("This is how many times each word is repeated");
 
-     foreach(var word in userSentence.GetWords())
-     {
-       Console.WriteLine($"{word} : {userSentence.GetWordCount(word)}" );
-     }
+        foreach (var word in userSentence.GetWords())
+        {
+          Console.WriteLine($"{word} : {userSentence.GetWordCount(word)}");
+        }
+        }
+
+
+      
     }
   }
 }

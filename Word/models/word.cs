@@ -41,7 +41,7 @@ namespace Word.Models
 
     private void WordCount()
     {
-      Regex r = new Regex("(?:[^a-z0-9 ]|(?<=['\"]))", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Compiled);
+      Regex r = new Regex("(?:[^0-9a-zA-Z]|(?<=['\"]))", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Compiled);
     
       // strip special chars here
       string[] words = Sentence.Split(" ");
@@ -51,16 +51,19 @@ namespace Word.Models
       
         string formatedWord = r.Replace(word, String.Empty).Replace(" ", "");
 
+        
         if(WordDict.ContainsKey(formatedWord))
         {
           WordDict[formatedWord] ++;
         }
+      
         else
         {
           WordDict.Add(formatedWord, 1);
         }
       }
     }
+    
   }
 }
 // Regex r = new Regex("(?:[^a-z0-9 ]|(?<=['\"])s)", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Compiled);
