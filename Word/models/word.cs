@@ -8,63 +8,61 @@ namespace Word.Models
   public class RepeatCounter
   {
     public string Sentence { get; set; }
+    public string SearchWord { get; set; }
 
-    private Dictionary<string, int> WordDict = new Dictionary<string, int>();
+    public Dictionary<string, int> WordDict = new Dictionary<string, int>();
 
-    public RepeatCounter(string sentence)
+    public RepeatCounter(string sentence, string searchWord)
     {
+
+      Sentence = sentence.ToLower();
+      SearchWord = searchWord.ToLower();
+
+    }
+    public string FilterInput()
+    {
+      string[] filterNums = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
       
-      Sentence = sentence.ToLower(); 
-      WordCount();
+
+      foreach (string numStr in filterNums)
+      {
+        if (Sentence.Contains(numStr)||SearchWord.Contains(numStr))
+        {
+          return "error";
+        }
+      }
+      return "is valid";
+    }
+    public string GetWordCount()
+    {
+
+      if (WordDict.ContainsKey(SearchWord))
+      {
+        return WordDict[SearchWord].ToString();
+      }
+      return "not here";
     }
 
-    public int GetWordCount(string word) {
-
-      // check dictionary to see if key exists
-      if (WordDict.ContainsKey(word.ToLower()))
-      {
-        return WordDict[word];
-      }
-
-      // if key exists ruturn value else return 0
-      return 0;
-    }
-    public List<string> GetWords()
+    public void WordCount()
     {
-      List<string> Words = new List<string>();
-      foreach(var key in WordDict.Keys)
-      {
-        Words.Add(key);
-      }
-      return Words;
-    } 
 
-    private void WordCount()
-    {
-      Regex r = new Regex("(?:[^0-9a-zA-Z]|(?<=['\"]))", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Compiled);
-    
-      // strip special chars here
       string[] words = Sentence.Split(" ");
 
       foreach (string word in words)
       {
-      
-        string formatedWord = r.Replace(word, String.Empty).Replace(" ", "");
 
-        
-        if(WordDict.ContainsKey(formatedWord))
+        if (WordDict.ContainsKey(word))
         {
-          WordDict[formatedWord] ++;
+          WordDict[word]++;
         }
-      
+
         else
         {
-          WordDict.Add(formatedWord, 1);
+          WordDict.Add(word, 1);
         }
       }
     }
-    
+
   }
 }
-// Regex r = new Regex("(?:[^a-z0-9 ]|(?<=['\"])s)", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Compiled);
-//     return r.Replace(input, String.Empty);
+

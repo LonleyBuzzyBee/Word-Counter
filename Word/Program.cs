@@ -9,28 +9,39 @@ namespace Word
     public static void Main()
     {
       Console.WriteLine("input a sentence");
+      string inputSentence = Console.ReadLine();
+      Console.WriteLine("input a word in the sentence to see how many times it's repeated");
+      string searchWord = Console.ReadLine();
 
-      string input = Console.ReadLine();
    
-        RepeatCounter userSentence = new RepeatCounter(input);
+        RepeatCounter userSentence = new RepeatCounter(inputSentence,searchWord);
 
-        if(string.IsNullOrEmpty(input))
+        if(string.IsNullOrEmpty(inputSentence)||string.IsNullOrEmpty(searchWord))
         {
-          Console.WriteLine("error");
+          Console.WriteLine("error empty input");
         }
         else
         {
 
-        Console.WriteLine("This is how many times each word is repeated");
-
-        foreach (var word in userSentence.GetWords())
+        userSentence.FilterInput();
+        userSentence.WordCount();
+     
+        if(userSentence.FilterInput() == "error")
         {
-          Console.WriteLine($"{word} : {userSentence.GetWordCount(word)}");
+          Console.WriteLine("an input contains a number");
         }
+        else if(userSentence.GetWordCount() == "not here")
+        {
+          Console.WriteLine("sentence does not contain search word");
         }
+        else
+        {
 
-
-      
+        Console.WriteLine("This is how many times the word is repeated");
+        Console.WriteLine($"{searchWord} : {userSentence.GetWordCount()}");
+        }
+        
+      } 
     }
   }
 }

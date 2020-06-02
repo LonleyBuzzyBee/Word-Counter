@@ -8,93 +8,93 @@ namespace Word.Tests
   public class Tests
   {
     [TestMethod]
-    public void RepeatWorddConstructor_CreatesInstance()
+    public void RepeatWordConstructor_CreatesInstance()
     {
-      RepeatCounter newCounter = new RepeatCounter("");
+      RepeatCounter newCounter = new RepeatCounter("the dog walks","walks");
       string sentence = newCounter.Sentence;
+      string searchWord = newCounter.SearchWord;
 
-      Assert.AreEqual("", sentence);
+      Assert.AreEqual("the dog walks", sentence);
+      Assert.AreEqual("walks", searchWord);
     }
     [TestMethod]
-    public void RepeatCounter_AddsValueToDict()
+    public void RepeatWordConstructor_MakesInputsLoweCased()
     {
-      RepeatCounter newSentence = new RepeatCounter("dog dog");
+      RepeatCounter newCounter = new RepeatCounter("THE DOG WALKS","WALKS");
+      string sentence = newCounter.Sentence;
+      string searchWord = newCounter.SearchWord;
 
-      newSentence.GetWordCount("dog");
-
+      Assert.AreEqual("the dog walks", sentence);
+      Assert.AreEqual("walks", searchWord);
+    }
+    [TestMethod]
+    public void FilterInput_ChecksForStrIntReturnsErrorIfSentenceContainsInt()
+    {
+      RepeatCounter newSentence = new RepeatCounter("dog d0g","dog");
      
-      var timesWordRepeat = newSentence.GetWordCount("dog");
+      var isValidOrError = newSentence.FilterInput();
 
-      Assert.AreEqual(2,timesWordRepeat);
+      Assert.AreEqual("error",isValidOrError);
     }
     [TestMethod]
-    public void RepeatCounter_ChecksForRepeatWords()
+    public void FilterInput_ChecksForStrIntReturnsErrorIfSearchWordContainsInt()
     {
-      RepeatCounter newSentence = new RepeatCounter("hey going hows it going");
+      RepeatCounter newSentence = new RepeatCounter("dog dog","d0g");
+     
+      var isValidOrError = newSentence.FilterInput();
 
-      var word1  = newSentence.GetWordCount("hey");
-      var word2  = newSentence.GetWordCount("going");
-      var word3  = newSentence.GetWordCount("hows");
-      var word4  = newSentence.GetWordCount("it");
+      Assert.AreEqual("error",isValidOrError);
+    }
+    public void FilterInput_ChecksForStrIntReturnsValidIfInputDoesntContainInt()
+    {
+      RepeatCounter newSentence = new RepeatCounter("dog dog","dog");
+     
+      var isValidOrError = newSentence.FilterInput();
 
-
-      Assert.AreEqual(1,word1);
-      Assert.AreEqual(2,word2);
-      Assert.AreEqual(1,word3);
-      Assert.AreEqual(1,word4);
+      Assert.AreEqual("is valid",isValidOrError);
     }
     [TestMethod]
-    public void RepeatCounterRemovesSpecialChar_()
+    public void GetWordCount_ChecksForHowManyTimesWordIsInDictIfMoreThanOnceIntGoesUp()
     {
-      RepeatCounter newSentence = new RepeatCounter("hey how is it going!");
+      RepeatCounter newRepeat = new RepeatCounter("dog dog", "dog");
 
-      var word1  = newSentence.GetWordCount("hey");
-      var word2  = newSentence.GetWordCount("going");
-      var word3  = newSentence.GetWordCount("how");
-      var word4  = newSentence.GetWordCount("it");
+      newRepeat.WordCount();
+      var count = newRepeat.WordDict[newRepeat.SearchWord];
 
-      Assert.AreEqual(1,word1);
-      Assert.AreEqual(1,word2);
-      Assert.AreEqual(1,word3);
-      Assert.AreEqual(1,word4);
+
+      Assert.AreEqual(2,count);
     }
     [TestMethod]
-    public void RepeatCounterConjoinsWordsWComma_()
+    public void GetWordCount_ChecksIfSearchWordInDict()
     {
-      RepeatCounter newSentence = new RepeatCounter("hey how's it going");
+      RepeatCounter newRepeat = new RepeatCounter("dog ", "dog");
 
-      var word1  = newSentence.GetWordCount("hey");
-      var word2  = newSentence.GetWordCount("going");
-      var word3  = newSentence.GetWordCount("hows");
-      var word4  = newSentence.GetWordCount("it");
+       newRepeat.WordCount();
+      var count = newRepeat.WordDict[newRepeat.SearchWord];
 
-      Assert.AreEqual(1,word1);
-      Assert.AreEqual(1,word2);
-      Assert.AreEqual(1,word3);
-      Assert.AreEqual(1,word4);
+
+      Assert.AreEqual(1,count);
     }
     [TestMethod]
-    public void RepeatCounterChecksIfWordIsInDictionaryIfNotThenWordIsZero_()
+    public void GetWordCount_ChecksIfSearchWordInDictCountGoesUpIfMoreThanOnce()
     {
-      RepeatCounter newSentence = new RepeatCounter("hope you have a nice day");
+      RepeatCounter newSentence = new RepeatCounter("dog dog dog dog", "dog");
 
-      var word1  = newSentence.GetWordCount("hope");
-      var word2  = newSentence.GetWordCount("cherry");
+      newSentence.WordCount();
+      var checkForStr = newSentence.GetWordCount();
 
-      Assert.AreEqual(1,word1);
-      Assert.AreEqual(0,word2);
+      Assert.AreEqual("4",checkForStr);
     }
     [TestMethod]
-    public void RepeatCounterLowercasesInput_()
+    public void GetWordCount_ChecksIfSearchWordInDictIfNotReturnNotHere()
     {
-      RepeatCounter newSentence = new RepeatCounter("HEY");
+      RepeatCounter newSentence = new RepeatCounter("dog dog", "yolo");
 
-      var word  = newSentence.GetWordCount("hey");
-    
-      Assert.AreEqual(1,word);
-  
+     newSentence.WordCount();
+      var checkForStr = newSentence.GetWordCount();
+
+      Assert.AreEqual("not here",checkForStr);
     }
-   
   }
 }
 
