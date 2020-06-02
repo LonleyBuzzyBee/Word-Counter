@@ -12,12 +12,17 @@ _This program was designed to help the user count how many times they used each 
 
 ## Project Specifications
 
-| Input | Output |
-|---|---|
-| the program takes the inputed sentence  |  "hey there" |
-| the program splits the sentence into an array of words |  ["hey, "there"] |
-| the program then counts how many times they used each word  | hey 1 time, there 1 time |
-| the program removes special char  | how's becomes hows |
+| Behavior | Input | Output |
+|---|---|---|
+| the program takes an inputed sentence for the user to look for a repeat word| "hey there" | Sentence = "hey there"  |
+| the program takes an inputed word the user is searching for in the sentence| "hey" | searchWord = "hey"  |
+| the program lowercases the inputed sentence | "HEY THERE" | "hey there |
+| the program checks inputs with numbers as invalid | "h3y th3r3" | "error"/"an input contains a number" |
+| the program checks if the word is the sentence, if not returns an error | sentence = "hey there", searchWord = "dog" | "sentence does not contain search word"/ "not here" |
+|the program checks if user inputed empty string|searchWord/sentence = ""|"error empty input"|
+|if both inputs are valid, then the program returns how many times the word is repeated in the sentence|sentence = "that dog is beautiful, that dog is a boy"|searchWord = "dog : 2"|
+
+
 
 
 ## Setup/Installation Requirements
